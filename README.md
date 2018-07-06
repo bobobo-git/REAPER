@@ -1,4 +1,5 @@
-# REAPER
+4 REAPER  
+
 i freed the SLAX from Sonicanomaly from functions  
 and duplicated a dialbutton to 8 of them (value1 to value8)  
   
