@@ -1,4 +1,4 @@
 # REAPER
 hopefully  
-- [Knobs](scripts/knobs.md)
+- [Knobs](scripts/8 Knobs.jsfx)
 
