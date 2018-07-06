@@ -1,0 +1,125 @@
+desc:8 Knobs
+version: 1.0
+author: SonicAnomaly - freed from functions by bobobo
+changelog: init
+provides: slax_gfx/*
+
+/*****************************************************
+Copyright (C) 2016 Sonic Anomaly.
+License: http://sonic.supermaailma.net/license.php
+*****************************************************/
+
+EffectName: S.LA.X
+VendorString: Sonic Anomaly
+VendorVersion: 1000
+UniqueId: 'SLAX'
+
+slider1:0<0,10,0.1>-Value1
+slider2:0<0,10,0.1>-Value2
+slider3:0<0,10,0.1>-Value3
+slider4:0<0,10,0.1>-Value4
+slider5:0<0,10,0.1>-Value5
+slider6:0<0,10,0.1>-Value6
+slider7:0<0,10,0.1>-Value7
+slider8:0<0,10,0.1>-Value8
+
+
+filename:0,slax_gfx/bigpot.png
+
+
+@init
+
+function Interpolate(A, B, X) (
+  A + ((B-A)*X);
+);
+
+function ProcessSliders() (
+  gain = 10^(Interpolate(0,40,(slider2/10)^2)/20);
+);
+
+@slider
+
+s1.value = slider1;
+s2.value = slider2;
+s3.value = slider3;
+s4.value = slider4;
+s5.value = slider5;
+s6.value = slider6;
+s7.value = slider7;
+s8.value = slider8;
+
+ProcessSliders();
+
+@block
+
+@sample
+
+@gfx 100 260
+
+function draw_pot(x,y,fw,fh,fn,f,t,s,d,id)
+(
+  
+  this.range = abs(f - t);
+  this.steps = this.range / s;  
+  
+  // Mouse Logic
+  mouse_x >= x && mouse_x <= x+fw && mouse_y >= y && mouse_y <= y+fh && !this.disabled ? (
+    !mouse_cap ? this.hasEntered = 1;
+    mouse_cap ? this.hasClicked = 1;
+    mouse_cap & 4 ? this.value = d;
+    this.hasEntered && this.hasClicked ? this.canChange = 1;
+  ) : (
+    this.hasEntered = this.hasClicked = 0;
+  );
+  !mouse_cap ? this.canChange = 0;
+  
+  // Process
+  this.canChange ? (
+    this.value += (this.y_tmp - mouse_y) * s;
+  );
+  
+  this.y_tmp = mouse_y;
+
+  // Update
+  this.value.temp != this.value ? (   
+    this.value = max(this.value,f);
+    this.value = min(this.value,t);
+    this.normalized = this.value * (1/(this.steps * s)) * 0.999;
+    this.rpos = floor((1 - this.normalized) + fn * this.normalized) * fh;
+    
+    _sliderDirty = 1;
+    this.value.temp = this.value;   
+  );
+  
+  this.coordinatelist[0] = 0;
+  this.coordinatelist[1] = this.rpos;
+  this.coordinatelist[2] = this.coordinatelist[6] = fw;
+  this.coordinatelist[3] = this.coordinatelist[7] = fh;
+  this.coordinatelist[4] = x;
+  this.coordinatelist[5] = y;
+  gfx_blitext(id, this.coordinatelist, 0);
+  
+  this.value;
+);
+
+
+/* Background */
+gfx_clear=100+(150*256)+(100*65536);
+
+
+/* Controls */
+x0=10;
+dx=118;
+x=x0;   slider1 = s1.draw_pot(x,x0,115,115,100,0,10,0.05,0,0);
+x=x+dx; slider2 = s2.draw_pot(x,x0,115,115,100,0,10,0.05,0,0);
+x=x+dx; slider3 = s3.draw_pot(x,x0,115,115,100,0,10,0.05,0,0);
+x=x+dx; slider4 = s4.draw_pot(x,x0,115,115,100,0,10,0.05,0,0);
+x=x0;   slider5 = s5.draw_pot(x,dx,115,115,100,0,10,0.05,0,0);
+x=x+dx; slider6 = s6.draw_pot(x,dx,115,115,100,0,10,0.05,0,0);
+x=x+dx; slider7 = s7.draw_pot(x,dx,115,115,100,0,10,0.05,0,0);
+x=x+dx; slider8 = s8.draw_pot(x,dx,115,115,100,0,10,0.05,0,0);
+
+_sliderDirty ? (  
+  ProcessSliders();
+  _sliderDirty = 0;
+);
