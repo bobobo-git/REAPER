@@ -2,7 +2,12 @@ so
 
 Put the content of [this zip](Virtual-Playing-Orchestra3-parallel.zip)beside the lib-folder
 
-look at the [layout.txt)(layout.txt) for closer information
+look at the [layout.txt](layout.txt) for closer information
+
+you find virtual playing at (http://virtualplaying.com/)
+
+
+
 
 
 
