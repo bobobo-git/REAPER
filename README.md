@@ -15,4 +15,8 @@ All credits to [SonicAnomaly](https://sonic.supermaailma.net/plugins)
 
 - [Knobs](scripts/8 Knobs.jsfx)
 
+Another change to the Virtual Playing form Paul Battersby
+[here](VP/README.md)
+
+
 <a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
