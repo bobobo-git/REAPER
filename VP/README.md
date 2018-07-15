@@ -1,13 +1,8 @@
-so
+a little tweak . i made 4 parallel Foilders so you can find the solely szf a bit more quickly i guess.
 
-Put the content of [this zip](Virtual-Playing-Orchestra3-parallel.zip)beside the lib-folder
+Put the content of [this zip](Virtual-Playing-Orchestra3-parallel.zip) beside the lib-folder
 
 look at the [layout.txt](layout.txt) for closer information
 
 you find virtual playing at (http://virtualplaying.com/)
-
-
-
-
-
 
