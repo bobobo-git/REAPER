@@ -1,0 +1,35 @@
++---Lib
+|   *---
+|   +---
++---Sec - Performance
+|   +---Brass
+|   +---Documentation
+|   +---Keys
+|   +---Percussion
+|   +---Strings
+|   +---Vocals
+|   \---Woodwinds
++---Sec - Standard
+|   +---Brass
+|   +---Documentation
+|   +---Keys
+|   +---Percussion
+|   +---Strings
+|   +---Vocals
+|   \---Woodwinds
++---Solo - Performance
+|   +---Brass
+|   +---Documentation
+|   +---Keys
+|   +---Percussion
+|   +---Strings
+|   +---Vocals
+|   \---Woodwinds
+\---Solo - Standard
+    +---Brass
+    +---Documentation
+    +---Keys
+    +---Percussion
+    +---Strings
+    +---Vocals
+    \---Woodwinds

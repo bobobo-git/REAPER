@@ -1,0 +1,3 @@
+Put the content of this zip beside the lib-folder
+
+look at the layout.txt for closer information
