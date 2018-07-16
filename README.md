@@ -17,7 +17,7 @@ All credits to [SonicAnomaly](https://sonic.supermaailma.net/plugins)
 
 -----------  
 
-[here](VP/README.md) you find a little tweak for the Virtual Playing from [Paul Battersby](http://virtualplaying.com/about/)  
+[here](VP/README.md) you find a little tweak for the Virtual Playing from [Paul Battersby](http://virtualplaying.com/about/)  [(obey licensing)](http://virtualplaying.com/virtual-playing-orchestra/#licensing)  
 
 
 <a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
