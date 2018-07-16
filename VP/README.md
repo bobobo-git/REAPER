@@ -4,7 +4,7 @@ Put the content of [this zip](Virtual-Playing-Orchestra3-parallel.zip) beside th
 
 look at the [layout.txt](layout.txt) for closer information
 
-you find virtual playing at http://virtualplaying.com/  
+you find virtual playing at [http://virtualplaying.com/](http://virtualplaying.com/)  
 you have to get the sanples from there  
 
 <a style="float:left;" href="https://bobobo-git.github.io/REAPER/">back</a>
