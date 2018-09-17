@@ -21,7 +21,7 @@ All credits to [SonicAnomaly](https://sonic.supermaailma.net/plugins)
 
 -------
 Renaming Childtracks --> ParentTrackname_ChildTrackname    
-[!renchildtoparent.eel](scriupts/!renchildtoparent.eel)  
+[!renchildtoparent.eel](scripts/!renchildtoparent.eel)  
 
 
 
