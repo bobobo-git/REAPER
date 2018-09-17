@@ -1,7 +1,7 @@
 4 REAPER  
 
 -------
-Renaming Childtracks --> ParentTrackname_ChildTrackname   (20180917) 
+Renaming Childtracks --> ParentTrackname_ChildTrackname   (20180917)  
 [!renchildtoparent.eel](scripts/!renchildtoparent.eel)  
 
 -------
