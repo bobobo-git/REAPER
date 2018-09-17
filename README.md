@@ -25,5 +25,5 @@ Renaming Childtracks --> ParentTrackname_ChildTrackname
 
 
 
-<a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
+<a href="https://github.com/bobobo-git/REAPER/">this</a><a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
 
