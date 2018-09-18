@@ -2,8 +2,14 @@
 
 -------
 Renaming Childtracks --> ParentTrackname_ChildTrackname   (20180917)  
+the brutal way, these two renames selected
+tracks : results in *foldername_trackname* , it renames all selected tracks  
 [!renchildtoparent.eel](scripts/!renchildtoparent.eel)  
 [!bobobo_rename_child_track_append_parent.eel](scripts/!bobobo_rename_child_track_append_parent.eel)  
+
+------
+
+this renames selected tracks and renames like above only if the track is not a folder itself  
 [!bobobo_rename_child_track_append_parent_if_not_parent.eel](scripts/!bobobo_rename_child_track_append_parent_if_not_parent.eel)  
 
 
