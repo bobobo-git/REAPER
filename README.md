@@ -3,6 +3,10 @@
 -------
 Renaming Childtracks --> ParentTrackname_ChildTrackname   (20180917)  
 [!renchildtoparent.eel](scripts/!renchildtoparent.eel)  
+[!bobobo_rename_child_track_append_parent.eel](scripts/!bobobo_rename_child_track_append_parent.eel)  
+[!bobobo_rename_child_track_append_parent_if_not_parent.eel](scripts/!bobobo_rename_child_track_append_parent_if_not_parent.eel)  
+
+
 
 -------
 
