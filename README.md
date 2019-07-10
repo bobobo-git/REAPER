@@ -39,5 +39,3 @@ All credits to [SonicAnomaly](https://sonic.supermaailma.net/plugins)
 
 
 <a href="https://bobobo-git.github.io/REAPER/">site</a><a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
-
-diese zeile kann weg
