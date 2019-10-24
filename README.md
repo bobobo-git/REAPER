@@ -29,12 +29,12 @@ and [SonicAnomaly's repository](https://github.com/Sonic-Anomaly/Sonic-Anomaly-J
 
 All credits to [SonicAnomaly](https://sonic.supermaailma.net/plugins)
 
-- [Knobs](scripts/8 Knobs.jsfx)
+- [8 Knobs](scripts/8 Knobs.jsfx)
 
 -----------  
 LOSERs saturation js
 enhanced with a volume slider to calm it (volume stolen from COCKOS volpansmoother  
-- [script](scripts/Saturation vol)
+- [Saturation vol](scripts/Saturation vol)
 
 -----------  
 
