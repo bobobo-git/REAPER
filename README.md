@@ -35,10 +35,10 @@ All credits to [SonicAnomaly](https://sonic.supermaailma.net/plugins)
 LOSERs saturation js
 enhanced with a volume slider to calm it (volume stolen from COCKOS volpansmoother  
 - [Saturation vol](scripts/Saturation vol)
+or another one, somehow simpler but more complex  
+ - [--!--sat_with input_output](scripts/--!--sat_with input_output)
 
 -----------  
-
-
 
 [here](VP/README.md) you find a little tweak for the Virtual Playing from [Paul Battersby](http://virtualplaying.com/about/)  <small>[(obey licensing)](http://virtualplaying.com/virtual-playing-orchestra/#licensing)</small> 
 
