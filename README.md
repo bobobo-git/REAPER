@@ -34,9 +34,10 @@ All credits to [SonicAnomaly](https://sonic.supermaailma.net/plugins)
 -----------  
 LOSERs saturation js
 enhanced with a volume slider to calm it (volume stolen from COCKOS volpansmoother  
-- [Saturation vol](scripts/Saturation vol)
+- [Saturation vol](scripts/Saturation vol)  
+
 or another one, somehow simpler but more complex  
- - [--!--sat_with input_output](scripts/--!--sat_with input_output)
+ - [--!--sat_with input_output](scripts/--!--sat_with input_output)  
 
 -----------  
 
