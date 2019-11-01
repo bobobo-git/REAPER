@@ -12,6 +12,13 @@ tracks : results in *foldername_trackname* , it renames all selected tracks
 this renames selected tracks and renames like above only if the track is not a folder itself  
 [!bobobo_rename_child_track_append_parent_if_not_parent.eel](scripts/!bobobo_rename_child_track_append_parent_if_not_parent.eel)  
 
+------
+
+this unmutes the first track and set transport to run  
+or mutes the first track an set transport to stop  
+
+[!bobobo_runstop_play.lua](scripts/!bobobo_runstop_play.lua)  
+
 
 
 -------
