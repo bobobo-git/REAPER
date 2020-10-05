@@ -53,8 +53,7 @@ or another one, somehow simpler but more complex
 
 ---------------
 AKAIMidiMix at your hand and don't know what to do with it?  
-Look at the AkaiMidiMixDubVersion  
-https://bobobo-git.github.io/AkaiMidiMixDubVersion/
+Look at the [AkaiMidiMixDubVersion](https://bobobo-git.github.io/AkaiMidiMixDubVersion/)
 
 
 <a href="https://bobobo-git.github.io/REAPER/">site</a><a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
