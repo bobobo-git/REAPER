@@ -57,6 +57,6 @@ Look at the [AkaiMidiMixDubVersion](https://bobobo-git.github.io/AkaiMidiMixDubV
 
 ---------------
 videoprozessor
-[videoprocessors](videoprocessor/list)
+[videoprocessors](videoprocessor/list.md)
 
 <a href="https://bobobo-git.github.io/REAPER/">site</a><a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
