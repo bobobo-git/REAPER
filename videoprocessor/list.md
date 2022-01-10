@@ -1,4 +1,4 @@
-solid color over the proect space
+solid color over the project space
 <pre>
 // my solid color  
 // bobobo , 2022 01 10 , coloring the project space  
