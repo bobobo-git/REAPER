@@ -59,11 +59,11 @@ gfx_str_draw(text,TX*(project_w-TW),TY*(project_h-TH));
 [my solidcolor_with_text](my_solidcolor_with_text)  
 
 <pre>
-Nice one! You can add it here: https://forum.cockos.com/showthread.php?t=213832
-__________________
-PayPal►SoundCloud►FR: True Non-destructive GLUE►All the REAPER names
-vitalker is online now  	Reply With Quote
-Old 09-22-2021, 10:51 AM	  #3
+
+
+
+
+
 ashcat_lt
 Human being with feelings
  
