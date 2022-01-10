@@ -1,4 +1,9 @@
-solid color over the project space
+Some simple videoprocessor scripts  
+
+solid color over the project space  
+creating colored backgrounds 
+fills the project area
+
 <pre>
 // my solid color  
 // bobobo , 2022 01 10 , coloring the project space  
@@ -15,7 +20,10 @@ gfx_fillrect(0,0,project_w,project_h);
 [my solidcolor](my_solidcolor)
 
 
-solid color over the project space with text (PostIt)
+solid color over the project space with text (PostIt)  
+colored background with text on it  
+fills the project area  
+
 <pre>
 // my solid color with text (Postit)
 // bobobo 2022 01 10
