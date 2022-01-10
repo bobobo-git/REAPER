@@ -1,1 +1,1 @@
-solid color over the proect space[my solidcolor](/videoprocessor/my_solidcolor)
+solid color over the proect space [my solidcolor](my solidcolor)
