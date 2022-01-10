@@ -20,8 +20,8 @@ solid color over the project space with text (PostIt)
 // my solid color with text (Postit)
 // bobobo 2022 01 10
 
-text="Text"; //change at will
-font="Arial"; // cahnge at will
+text="Text"; // change at will
+font="Arial"; // change at will
 
 //@param1:R 'BG R' 1 0 1 0.5 0.01
 //@param2:G 'BG G' 1 0 1 0.5 0.01 
