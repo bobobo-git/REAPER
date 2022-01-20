@@ -122,6 +122,40 @@ __________________
 paragirafe posted some tricks
 <a href="https://forum.cockos.com/showthread.php?t=259354">Here</a>
 
+
+Fabian freeze frame
+<pre>
+// Freeze frame
+// Freezes the frame current when the freeze button flips from 0 to 1
+// If freeze == 0 && prev_frezze == 0, just blit out what comes in (is automatic)
+// If freeze == 1 && prev_freeze == 0, grab and hold current frame, prev_freeze = 1
+// if freeze == 1 && prev_freeze == 1, blit out held frame
+// If freeze == 0 && prev_freeze == 1, blit out what comes in, prev_freeze = 0
+//@param1:freeze 'freeze' 0 0 1 0.5 1
+
+src = 0;
+input_info(src,w,h) ? ( project_w = w; project_h = h; ); // preserve input dimensions
+
+/*(freeze == 0 && prev_freeze == 0) ?
+(
+  // No need to do anything
+):*/
+(freeze == 1 && prev_freeze == 0) ?
+(
+  myhandle = gfx_img_hold(src); // grab the current frame
+  prev_freeze = 1;
+):
+(freeze == 1 && prev_freeze == 1) ?
+(
+  //  gfx_dest = -1;
+  gfx_blit(myhandle); // blit out the grabbed frame
+):
+(freeze == 0 && prev_freeze == 1) ?
+(
+  gfx_img_free(myhandle); // discard the grabbed frame
+  prev_freeze = 0;
+);
+</pre>
 more to come  
 
 
