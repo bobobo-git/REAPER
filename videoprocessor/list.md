@@ -120,7 +120,7 @@ colorspace=oldCS;
 __________________
 
 paragirafe posted some tricks
-<a href"=https://forum. cockos.com/showthread.php?t=259354">Here</a>
+<a href="https://forum. cockos.com/showthread.php?t=259354">Here</a>
 
 more to come  
 
