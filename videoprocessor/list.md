@@ -122,7 +122,7 @@ __________________
 paragirafe posted some tricks
 <a href="https://forum.cockos.com/showthread.php?t=259354">Here</a>
 
-
+__________________
 Fabian freeze frame
 <pre>
 // Freeze frame
@@ -158,5 +158,5 @@ input_info(src,w,h) ? ( project_w = w; project_h = h; ); // preserve input dimen
 </pre>
 more to come  
 
-
+__________________
 <a href="https://bobobo-git.github.io/REAPER/">site</a><a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
