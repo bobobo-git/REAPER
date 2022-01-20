@@ -59,19 +59,9 @@ gfx_str_draw(text,TX*(project_w-TW),TY*(project_h-TH));
 [my solidcolor_with_text](my_solidcolor_with_text)  
 
 <pre>
-
-
-
-
-
 ashcat_lt
 Human being with feelings
  
-
-
-
-
-
 // ashcat_lt better cropped overlay
 //@param 1:in1 'overlay (-1=next video track)' -1 -1 50 0 1
 //@param 2:in2 'background (-1=second next)' -1 -1 50 0 1
