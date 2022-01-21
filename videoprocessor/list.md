@@ -16,6 +16,8 @@ gfx_blit(0,1);
 gfx_set(R,G,B,A);  
 gfx_fillrect(0,0,project_w,project_h);  
 </pre>
+[my solidcolor](my_solidcolor)
+
 
 solid color over the project space  
 creating colored backgrounds 
@@ -54,7 +56,7 @@ s==1?(
 gfx_set(R,G,B,A);
 gfx_fillrect(w+dx,h+dy,project_w-(w*2),project_h-(h*2));
 </pre>
-[my solidcolor](my_solidcolor)
+[my solidcolor_enhanced](my_solidcolor_enhanced)
 
 
 solid color over the project space with text (PostIt)  
