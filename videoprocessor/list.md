@@ -59,6 +59,7 @@ gfx_fillrect(w+dx,h+dy,project_w-(w*2),project_h-(h*2));
 </pre>
 [my solidcolor_enhanced](my_solidcolor_enhanced)
 
+__________________
 
 solid color over the project space with text (PostIt)  
 colored background with text on it  
@@ -97,6 +98,10 @@ gfx_str_draw(text,TX*(project_w-TW),TY*(project_h-TH));
 </pre>
 
 [my solidcolor_with_text](my_solidcolor_with_text)  
+
+__________________
+
+cropped overlay from ashcat_it  
 
 <pre>
 ashcat_lt
