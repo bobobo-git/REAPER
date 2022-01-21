@@ -5,7 +5,7 @@ creating colored backgrounds
 fills the project area
 
 <pre>
-// my solid color  
+// my solid color 
 // bobobo , 2022 01 10 , coloring the project space  
 //@param1:R 'BG R' 1 0 1 0.5 0.01  
 //@param2:G 'BG G' 1 0 1 0.5 0.01   
@@ -17,6 +17,43 @@ gfx_set(R,G,B,A);
 gfx_fillrect(0,0,project_w,project_h);  
 </pre>
 
+solid color over the project space  
+creating colored backgrounds 
+fills the project area
+enhanced version
+- optional shadow  
+- sizing
+- positioning  
+
+<pre>
+// my solid color enhanced
+//@param1:R 'BG R'   1 0  1 0.5   0.01
+//@param2:G 'BG G'   1 0  1 0.5   0.01 
+//@param3:B 'BG B'   1 0  1 0.5   0.01 
+//@param4:A 'BG A'   1 0  1 0.5   0.01
+//
+//
+//@param6:w 'width-red' 0 0 50 0.01  0.01
+//@param7:h 'height-red' 0 0 50 0.01  0.01
+//
+//@param9:dx 'dx' 0 -100 100 0 0.1
+//@param10:dy 'dy' 0 -100 100 0 0.1
+//
+//@param12:s 'shadow' 0 0 1 0.5 1
+//@param13:sd 'x-y shadow' 2 1 5 3 1 
+
+h=project_h/100*h;
+w=project_w/100*w;
+dx=project_w/100*dx;
+dy=project_h/100*dy;
+gfx_blit(0,1);
+s==1?(
+    gfx_set(0.5,0.5,0.5,0.5);
+    gfx_fillrect(w+sd+dx,h+sd+dy,project_w-(w*2)+sd,project_h-(h*2)+sd);
+);
+gfx_set(R,G,B,A);
+gfx_fillrect(w+dx,h+dy,project_w-(w*2),project_h-(h*2));
+</pre>
 [my solidcolor](my_solidcolor)
 
 
