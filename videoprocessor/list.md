@@ -29,6 +29,7 @@ enhanced version
 
 <pre>
 // my solid color enhanced
+// bobobo , 2022 01 21 , coloring the project space enh 
 //@param1:R 'BG R'   1 0  1 0.5   0.01
 //@param2:G 'BG G'   1 0  1 0.5   0.01 
 //@param3:B 'BG B'   1 0  1 0.5   0.01 
