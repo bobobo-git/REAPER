@@ -20,7 +20,26 @@ or mutes the first track an set transport to stop
 [!bobobo_runstop_play.lua](scripts/!bobobo_runstop_play.lua)  
 
 
+-------
+JSFX
+controlling sometihng with midi  
 
+
+<pre>
+desc:cc volslider
+//bobobo:2022 jan 25
+//this sends a midi volumechange when the slider is changed
+slider1:0<0,127,1>cc 7 midi vol (0-127)
+@init
+ccold;
+cc;
+shot=0;
+@slider
+cc=slider1;
+ccold !== cc?( ccold=cc; shot=1;):(shot=0);
+@block
+shot==1?( midisend(0,  0xB0,7,slider1));
+</pre>
 -------
 
 i freed the SLAX from SonicAnomaly from functions  
