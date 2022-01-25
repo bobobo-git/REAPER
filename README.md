@@ -22,9 +22,7 @@ or mutes the first track an set transport to stop
 
 -------
 JSFX
-controlling sometihng with midi  
-
-
+controlling something with midi  
 <pre>
 desc:cc volslider
 //bobobo:2022 jan 25
