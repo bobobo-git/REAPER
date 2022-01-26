@@ -39,7 +39,17 @@ ccold !== cc?( ccold=cc; shot=1;):(shot=0);
 shot==1?( midisend(0,  0xB0,7,slider1));
 </pre>
 -------
+<a href="">#s-s-connection</a>
+someone had problems controlling input volume (a plugin has no envelope and no direct contact to REAPER's guts  
+i made a controller script to deal with a volume slider also when lying in inputfx  
+put this as Track FX  
+[superior](scripts/VolumePan Smoother v5 special superior.txt)
+and this in Input FX  
+[superior](scripts/VolumePan Smoother v5 special subordinate.txt)
 
+sliding the volume in the track fx will dial the volume in Inpzt FX as well.
+
+-------
 i freed the SLAX from SonicAnomaly from functions  
 and duplicated a dialbutton to 8 of them (value1 to value8)  
   
