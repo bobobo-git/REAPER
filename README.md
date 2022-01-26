@@ -39,16 +39,15 @@ ccold !== cc?( ccold=cc; shot=1;):(shot=0);
 shot==1?( midisend(0,  0xB0,7,slider1));
 </pre>
 -------
-
+<a name="controlling InputFX from TrackFX"></a>  
 someone had problems controlling input volume via envelope (an input fx has not too mcuh connect to the REAPERs guts)  
 i made a controller script to deal with this  
-you get a volume slider in a trackFX
+you get a volume slider in a trackFX  
 
-[superior](scripts/VolumePan Smoother v5 special superior.txt)
+[superior](scripts/VolumePan Smoother v5 special superior.txt)  
 and a subordinate FX in Input FX  
-[superior](scripts/VolumePan Smoother v5 special subordinate.txt)
-
-sliding the volume in the track fx will dial the volume in Input FX as well.
+[subordinate](scripts/VolumePan Smoother v5 special subordinate.txt)  
+sliding the volume in the track fx will dial the volume in Input FX as well.  
 
 -------
 i freed the SLAX from SonicAnomaly from functions  
