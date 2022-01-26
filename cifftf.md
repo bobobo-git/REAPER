@@ -9,3 +9,4 @@ and a subordinate FX in Input FX
 [subordinate](scripts/VolumePan_Smoother_v5_special_subordinate)  
 sliding the volume in the track fx will dial the volume in Input FX as well.  
 
+<a href="https://bobobo-git.github.io/REAPER/">site</a><a style="float:right;" href="https://github.com/bobobo-git/REAPER/">.</a>
