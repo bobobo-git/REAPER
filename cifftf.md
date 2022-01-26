@@ -6,6 +6,6 @@ you get a volume slider in a trackFX
 
 [superior](scripts/VolumePan_Smoother_v5_special_superior)  
 and a subordinate FX in Input FX  
-[subordinate](scripts/VolumePan_Smoother_v5_special_subordinate.txt)  
+[subordinate](scripts/VolumePan_Smoother_v5_special_subordinate)  
 sliding the volume in the track fx will dial the volume in Input FX as well.  
 
