@@ -48,6 +48,7 @@ you get a volume slider in a trackFX
 and a subordinate FX in Input FX  
 [subordinate](scripts/VolumePan Smoother v5 special subordinate.txt)  
 sliding the volume in the track fx will dial the volume in Input FX as well.  
+[solo](cifftf.md)  
 
 -------
 i freed the SLAX from SonicAnomaly from functions  
