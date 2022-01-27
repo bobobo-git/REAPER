@@ -1,6 +1,7 @@
 ##Controlling InputFX from Track FX
 
-someone had problems controlling input volume via envelope (an input fx has not too mcuh connect to the REAPERs guts)  
+recently someone had problems controlling input volume via envelope (an input fx has not too much connection to the REAPERs guts)  
+
 i made a controller script to deal with this  ( I salute the FX Builder of the original script )  
 you get a volume slider in a trackFX  
 
