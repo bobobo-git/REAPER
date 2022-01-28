@@ -5,3 +5,11 @@ options:gmem=bobobo_s_slider_thingy;
 @slider
 gmem[1]=slider2;
 @block
+/*
+you can make an eel script dealing with this gmem[1] whenputting a
+
+//@gmem=bobobo_s_slider_thingy
+
+in the first line of the eel using gmem[1] , this will load gmem[1] statical
+you have to create a loop to get this renewed
+*/
