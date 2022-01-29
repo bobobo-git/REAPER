@@ -207,6 +207,8 @@ input_info(src,w,h) ? ( project_w = w; project_h = h; ); // preserve input dimen
 __________________
 
 my actual [videoprocessor presets (RPL)](videoprozessorpresets.RPL)  
+handle with care  
+importing may overwrite your personal presets 
 
 __________________
 
