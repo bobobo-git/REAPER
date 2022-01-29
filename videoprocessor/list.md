@@ -206,6 +206,10 @@ input_info(src,w,h) ? ( project_w = w; project_h = h; ); // preserve input dimen
 
 __________________
 
+my actual [videoprocessor presets (RPL)](videoprozessorpresets.RPL)  
+
+__________________
+
 more to come  
 
 __________________
