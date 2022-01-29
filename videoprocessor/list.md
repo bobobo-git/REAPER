@@ -208,7 +208,7 @@ __________________
 
 my actual [videoprocessor presets (RPL)](videoprozessorpresets.RPL)  
 handle with care  
-importing may overwrite your personal presets 
+importing may overwrite your personal presets  
 
 __________________
 
