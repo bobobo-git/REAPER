@@ -165,7 +165,7 @@ colorspace=oldCS;
 </pre>
 __________________
 
-paragirafe posted some tricks
+papagirafe posted some tricks
 <a href="https://forum.cockos.com/showthread.php?t=259354">Here</a>
 
 __________________
@@ -212,7 +212,7 @@ importing may overwrite your personal presets
 
 ------------------
 
-a function by [pargirafe](https://forum.cockos.com/member.php?u=144400) to allocate an temporary image with an alpha plane (i.e. with transparent background).Of course you need to gfx_blit() with mode=0x10000  
+a function by [papagirafe](https://forum.cockos.com/member.php?u=144400) to allocate an temporary image with an alpha plane (i.e. with transparent background).Of course you need to gfx_blit() with mode=0x10000  
 
 <pre>
 function gfx_img_alloc_transparent(w,h) 
