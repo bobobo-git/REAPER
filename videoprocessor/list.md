@@ -227,11 +227,11 @@ function gfx_img_alloc_transparent(w,h)
 </pre>
 __________________  
 
-outlined text the papagirfe kind  
+outlined text the papagirafe kind  
+
+quote: Here is an much better looking version. Keep in mind that the text is drawn as many time as the parameter "outline divs" + 1. Caveat: "text alpha" controls the transparency of the text *and* outline which mean the outline color will bleed into the text color if alpha is < 1.
+
 <pre>
-Here is an much better looking version. Keep in mind that the text is drawn as many time as the parameter "outline divs" + 1. Caveat: "text alpha" controls the transparency of the text *and* outline which mean the outline color will bleed into the text color if alpha is < 1.
-
-
 // Overlay: Text v2.1 w/ajustable outline
 // by papagirafe
 // Write your own text inside quotes, multiple lines allowed, ""=item/track name
