@@ -210,6 +210,21 @@ my actual [videoprocessor presets (RPL)](videoprozessorpresets_no_js.RPL)
 handle with care  
 importing may overwrite your personal presets  
 
+------------------
+
+a function by [pargirafe](https://forum.cockos.com/member.php?u=144400) to allocate an temporary image with an alpha plane (i.e. with transparent background).Of course you need to gfx_blit() with mode=0x10000  
+
+<pre>
+function gfx_img_alloc_transparent(w,h) 
+(
+  img=gfx_img_alloc();           // first, image handle only
+  gfx_img_resize(img,-1,-1);     // incantation to summon alpha plane
+  gfx_img_resize(img,w,h);       // real size now
+  gfx_set(0,0,0,0,0x10000,img);  // 100% transparent "black"
+  gfx_fillrect(0,0,w,h);         
+  img;
+);
+</pre>
 __________________
 
 more to come  
