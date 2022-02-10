@@ -225,7 +225,87 @@ function gfx_img_alloc_transparent(w,h)
   img;
 );
 </pre>
-__________________
+__________________  
+
+outlined text the papagirfe kind  
+<pre>
+urprisingly simple solution ! (take 2)
+Here is an much better looking version. Keep in mind that the text is drawn as many time as the parameter "outline divs" + 1. Caveat: "text alpha" controls the transparency of the text *and* outline which mean the outline color will bleed into the text color if alpha is < 1.
+
+
+
+Code:
+// Overlay: Text v2.1 w/ajustable outline
+// by papagirafe
+// Write your own text inside quotes, multiple lines allowed, ""=item/track name
+#text=""; 
+// default font = "Arial" in Windows
+font="";   
+/*
+  font styles from following list - multiple choices allowed - uppercase mandatory 
+  'B' - Bold,   'I' - Italics,  'R' - Blur aka smooth edges (no effect with S/O),
+  'S' - Shadow, 'O' - Outline(stock version),  'V' - Invert bg/fg,
+  'M' - monospace (if choice exists with the chosen font) 
+  'U' - underlined 
+*/
+style = 'R';   
+
+//@param size 'text height' 0.05 0.01 1.0 0.5 0.001
+//@param xpos 'x position' 0.5 0 1 0.5 0.01
+//@param ypos 'y position' 0.5 0 1 0.5 0.01
+//@param useWet 'use item fade' 1 0 1 0.5 1
+
+//@param6:fgr 'text r' 1.0 0 1 0.5 0.01
+//@param fgg 'text g' 1.0 0 1 0.5 0.01
+//@param fgb 'text b' 1.0 0 1 0.5 0.01
+//@param fga 'text a' 1.0 0 1 0.5 0.01
+
+//@param11:bgh 'bg h' 0 0 1 0.5 0.01
+//@param bgw 'bg w' 0 0 600 0.5 1
+//@param bgr 'bg r' 0 0 1 0.5 0.01
+//@param bgg 'bg g' 0 0 1 0.5 0.01
+//@param bgb 'bg b' 0 0 1 0.5 0.01
+//@param bga 'bg a' 0.5 0 1 0.5 0.01
+
+//@param18:olr 'outline r' 0 0 1 0.5 0.01
+//@param olg 'outline g' 0 0 1 0.5 0.01
+//@param olb 'outline b' 0 0 1 0.5 0.01
+//@param olt 'outline thickness' 0 0 100 50 1
+//@param oldiv 'outline divs' 8 8 64 32 1
+
+function polar2xy(r,phi,x*,y*)
+(
+  x=r*cos(phi);
+  y=r*sin(phi);
+);
+
+wet=useWet?param_wet:1;    
+
+input = 0;
+project_wh_valid===0 ? input_info(input,project_w,project_h);
+gfx_blit(input,1);
+gfx_setfont(size*project_h,font,style);
+strcmp(#text,"")==0 ? input_get_name(-1,#text);
+gfx_str_measure(#text,txtw,txth);
+yt = (project_h- txth*(1+bgh*2))*ypos;
+gfx_set(bgr,bgg,bgb,bga*wet);
+gfx_fillrect(xpos*(project_w-txtw)-bgw, yt, txtw+bgw*2, txth*(1+bgh*2));
+
+olt>0?(
+  gfx_set(olr,olg,olb,fga);
+  i=0; loop(2*oldiv, 
+    phi=i*$pi/oldiv;
+    polar2xy(olt,phi,ox,oy);
+    gfx_str_draw(#text,xpos*(project_w-txtw)+ox,yt+txth*bgh+oy,olr,olg,olb);
+    i+=1;
+  );
+);
+
+gfx_set(fgr,fgg,fgb,fga*wet);
+gfx_str_draw(#text,xpos * (project_w-txtw),yt+txth*bgh,olr,olg,olb);
+
+</pre>
+------------------  
 
 more to come  
 
