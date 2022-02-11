@@ -229,46 +229,57 @@ __________________
 
 outlined text the papagirafe kind  
 
-quote: Here is an much better looking version. Keep in mind that the text is drawn as many time as the parameter "outline divs" + 1. Caveat: "text alpha" controls the transparency of the text *and* outline which mean the outline color will bleed into the text color if alpha is < 1.
+frome (here)[https://forum.cockos.com/showpost.php?p=2525706&postcount=1]
 
 <pre>
-// Overlay: Text v2.1 w/ajustable outline
+// Overlay: Text v2.2 w/ajustable outline/shadow
 // by papagirafe
-// Write your own text inside quotes, multiple lines allowed, ""=item/track name
+// Write your own text inside quotes, multiple lines allowed
+// if empty, text = item/track name
 #text=""; 
 // default font = "Arial" in Windows
 font="";   
 /*
   font styles from following list - multiple choices allowed - uppercase mandatory 
-  'B' - Bold,   'I' - Italics,  'R' - Blur aka smooth edges (no effect with S/O),
-  'S' - Shadow, 'O' - Outline(stock version),  'V' - Invert bg/fg,
-  'M' - monospace (if choice exists with the chosen font) 
-  'U' - underlined 
+  'B' - Bold,   'I' - Italics,  'R' - smooth edges,
+  'V' - Invert bg/fg, 'U' - underlined 
+  shadow and outline are handled with dedicated parameters
 */
-style = 'R';   
+style='R';   
 
 //@param size 'text height' 0.05 0.01 1.0 0.5 0.001
 //@param xpos 'x position' 0.5 0 1 0.5 0.01
 //@param ypos 'y position' 0.5 0 1 0.5 0.01
-//@param useWet 'use item fade' 1 0 1 0.5 1
 
-//@param6:fgr 'text r' 1.0 0 1 0.5 0.01
-//@param fgg 'text g' 1.0 0 1 0.5 0.01
-//@param fgb 'text b' 1.0 0 1 0.5 0.01
-//@param fga 'text a' 1.0 0 1 0.5 0.01
+//@param5:fgr 'text r' 1.0 0 1 0.5 0.01
+//@param fgg 'text g' 1 0 1 0.5 0.01
+//@param fgb 'text b' 1 0 1 0.5 0.01
+//@param fga 'text a' 1 -0.1 1 0.5 0.1
 
-//@param11:bgh 'bg h' 0 0 1 0.5 0.01
+//@param10:bgh 'bg h' 0 0 1 0.5 0.01
 //@param bgw 'bg w' 0 0 600 0.5 1
 //@param bgr 'bg r' 0 0 1 0.5 0.01
 //@param bgg 'bg g' 0 0 1 0.5 0.01
 //@param bgb 'bg b' 0 0 1 0.5 0.01
 //@param bga 'bg a' 0.5 0 1 0.5 0.01
 
-//@param18:olr 'outline r' 0 0 1 0.5 0.01
+//@param17:olr 'outline r' 0 0 1 0.5 0.01
 //@param olg 'outline g' 0 0 1 0.5 0.01
 //@param olb 'outline b' 0 0 1 0.5 0.01
 //@param olt 'outline thickness' 0 0 100 50 1
-//@param oldiv 'outline divs' 8 8 64 32 1
+//@param oldiv 'outline divs' 64 8 128 64 4
+//@param shmode 'shadow mode' 0 0 1 0.5 1
+//@param shangl 'shadow angle' 45 0 359 180 1
+
+function gfx_img_alloc_transparent(w,h) 
+(
+  img=gfx_img_alloc();           // first, image handle only
+  gfx_img_resize(img,-1,-1);     // incantation to summon alpha plane
+  gfx_img_resize(img,w,h);       // real size now
+  gfx_set(0,0,0,0,0x10000,img);  // 100% transparent "black"
+  gfx_fillrect(0,0,w,h);         
+  img;
+);
 
 function polar2xy(r,phi,x*,y*)
 (
@@ -276,30 +287,39 @@ function polar2xy(r,phi,x*,y*)
   y=r*sin(phi);
 );
 
-wet=useWet?param_wet:1;    
-
+fga<0?fga=param_wet; bga*=fga; mode=0x10000;
 input = 0;
 project_wh_valid===0 ? input_info(input,project_w,project_h);
 gfx_blit(input,1);
 gfx_setfont(size*project_h,font,style);
 strcmp(#text,"")==0 ? input_get_name(-1,#text);
 gfx_str_measure(#text,txtw,txth);
-yt = (project_h- txth*(1+bgh*2))*ypos;
-gfx_set(bgr,bgg,bgb,bga*wet);
-gfx_fillrect(xpos*(project_w-txtw)-bgw, yt, txtw+bgw*2, txth*(1+bgh*2));
+yt = (project_h-txth*(1+bgh*2))*ypos;
+
+bga>0?(
+  gfx_set(bgr,bgg,bgb,bga);
+  gfx_fillrect(xpos*(project_w-txtw)-bgw-olt, yt-olt, txtw+bgw*2+2*olt, txth*(1+bgh*2)+2*olt);
+);
+
+img=gfx_img_alloc_transparent(txtw+2*olt,txth+2*olt);
 
 olt>0?(
-  gfx_set(olr,olg,olb,fga);
-  i=0; loop(2*oldiv, 
-    phi=i*$pi/oldiv;
+ shangl=shmode?shangl*oldiv/360:0; 
+ gfx_set(olr,olg,olb,1,mode,img);
+  i=0; loop(shmode?oldiv/16:oldiv, 
+    phi=2*(i+shangl)*$pi/oldiv;
     polar2xy(olt,phi,ox,oy);
-    gfx_str_draw(#text,xpos*(project_w-txtw)+ox,yt+txth*bgh+oy,olr,olg,olb);
+    gfx_str_draw(#text,ox+olt,oy+olt,olr,olg,olb);
     i+=1;
   );
 );
+gfx_set(fgr,fgg,fgb,1,mode,img);
+gfx_str_draw(#text,olt,olt,olr,olg,olb);
 
-gfx_set(fgr,fgg,fgb,fga*wet);
-gfx_str_draw(#text,xpos * (project_w-txtw),yt+txth*bgh,olr,olg,olb);
+gfx_dest=-1; gfx_a=fga;
+gfx_blit(img,1,xpos*(project_w-txtw)-olt,yt+txth*bgh-olt,txtw+2*olt,txth+2*olt); 
+
+gfx_img_free(img);
 
 </pre>
 ------------------  
