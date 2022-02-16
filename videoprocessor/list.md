@@ -232,10 +232,9 @@ outlined text the papagirafe kind
 frome (here)[https://forum.cockos.com/showpost.php?p=2525706&postcount=1]
 
 <pre>
-// Overlay: Text v2.2 w/ajustable outline/shadow
+// Overlay: Text v2.23 w/ajustable outline/shadow
 // by papagirafe
 // Write your own text inside quotes, multiple lines allowed
-// if empty, text = item/track name
 #text=""; 
 // default font = "Arial" in Windows
 font="";   
@@ -254,7 +253,7 @@ style='R';
 //@param5:fgr 'text r' 1.0 0 1 0.5 0.01
 //@param fgg 'text g' 1 0 1 0.5 0.01
 //@param fgb 'text b' 1 0 1 0.5 0.01
-//@param fga 'text a' 1 -0.1 1 0.5 0.1
+//@param fga 'text a' 1 -0.01 1 0.5 0.01
 
 //@param10:bgh 'bg h' 0 0 1 0.5 0.01
 //@param bgw 'bg w' 0 0 600 0.5 1
@@ -266,19 +265,33 @@ style='R';
 //@param17:olr 'outline r' 0 0 1 0.5 0.01
 //@param olg 'outline g' 0 0 1 0.5 0.01
 //@param olb 'outline b' 0 0 1 0.5 0.01
+//@param ola 'outline a' 0.1 0.01 1 0.5 0.01
 //@param olt 'outline thickness' 0 0 100 50 1
-//@param oldiv 'outline divs' 64 8 128 64 4
+//@param oldiv 'outline divs' 32 8 128 64 4
 //@param shmode 'shadow mode' 0 0 1 0.5 1
 //@param shangl 'shadow angle' 45 0 359 180 1
 
 function gfx_img_alloc_transparent(w,h) 
 (
-  img=gfx_img_alloc();           // first, image handle only
-  gfx_img_resize(img,-1,-1);     // incantation to summon alpha plane
-  gfx_img_resize(img,w,h);       // real size now
-  gfx_set(0,0,0,0,0x10000,img);  // 100% transparent "black"
-  gfx_fillrect(0,0,w,h);         
+  input_info(0,iw,ih); 
+  iw>0&&ih>0?(  //media file exists?
+    img=gfx_img_alloc();           // first, image handle only
+    gfx_img_resize(img,-1,-1);     // summon alpha plane
+    gfx_img_resize(img,w+1,h+1);       // real size now (w+1/h+1 = gfx_blit() bug patch)
+    gfx_set(0,0,0,0,0x10000,img);  // 100% transparent "black"
+    gfx_fillrect(0,0,w,h);         
+  ):(
+    img=gfx_img_alloc(w+1,h+1,1);      // std cleared image (w+1/h+1 = gfx_blit() bug patch)
+  );
   img;
+);
+
+function set_project_wh_safe(w*,h*)
+(
+  project_wh_valid===0 ? ( 
+    input_info(0,w,h);  // no pw,ph get from current item
+    w==0||h==0?(w=480; h=270;); // worst case scenario? 1/4 HD
+  );
 );
 
 function polar2xy(r,phi,x*,y*)
@@ -287,25 +300,30 @@ function polar2xy(r,phi,x*,y*)
   y=r*sin(phi);
 );
 
-fga<0?fga=param_wet; bga*=fga; mode=0x10000;
-input = 0;
-project_wh_valid===0 ? input_info(input,project_w,project_h);
-gfx_blit(input,1);
+fga<0?fga=param_wet; 
+bga*=fga; //bg alpha dependent upon fg alpha
+mode=0x10000; //use alpha
+set_project_wh_safe(project_w, project_h);
+
+gfx_blit(0,1);
 gfx_setfont(size*project_h,font,style);
 strcmp(#text,"")==0 ? input_get_name(-1,#text);
 gfx_str_measure(#text,txtw,txth);
-yt = (project_h-txth*(1+bgh*2))*ypos;
+yt =(project_h-txth*(1+bgh*2))*ypos;
 
+// background if applicable
 bga>0?(
   gfx_set(bgr,bgg,bgb,bga);
   gfx_fillrect(xpos*(project_w-txtw)-bgw-olt, yt-olt, txtw+bgw*2+2*olt, txth*(1+bgh*2)+2*olt);
 );
 
+//temporary image using alpha 1 for consistent drawing
 img=gfx_img_alloc_transparent(txtw+2*olt,txth+2*olt);
 
+// pourtour du texte si applicable
 olt>0?(
- shangl=shmode?shangl*oldiv/360:0; 
- gfx_set(olr,olg,olb,1,mode,img);
+  shmode?(ola=exp(ola*fga*3.5-4);shangl=shangl*oldiv/360):(ola=exp((oldiv/16)*ola*fga-4.61);shangl=0;); 
+  gfx_set(olr,olg,olb,ola*fga,mode,img);
   i=0; loop(shmode?oldiv/16:oldiv, 
     phi=2*(i+shangl)*$pi/oldiv;
     polar2xy(olt,phi,ox,oy);
@@ -313,12 +331,13 @@ olt>0?(
     i+=1;
   );
 );
+// text
 gfx_set(fgr,fgg,fgb,1,mode,img);
 gfx_str_draw(#text,olt,olt,olr,olg,olb);
 
+// copy tmp img to frame buffer with desired alpha value
 gfx_dest=-1; gfx_a=fga;
-gfx_blit(img,1,xpos*(project_w-txtw)-olt,yt+txth*bgh-olt,txtw+2*olt,txth+2*olt); 
-
+gfx_blit(img,0,xpos*(project_w-txtw)-olt,yt+txth*bgh-olt,txtw+2*olt,txth+2*olt,0,0,txtw+2*olt,txth+2*olt); 
 gfx_img_free(img);
 
 </pre>
