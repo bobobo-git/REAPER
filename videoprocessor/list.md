@@ -229,7 +229,7 @@ __________________
 
 outlined text the papagirafe kind  
 
-frome (here)[https://forum.cockos.com/showpost.php?p=2525706&postcount=1]
+frome [here](https://forum.cockos.com/showpost.php?p=2525706&postcount=1)
 
 <pre>
 // Overlay: Text v2.23 w/ajustable outline/shadow
