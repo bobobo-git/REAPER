@@ -343,6 +343,55 @@ gfx_img_free(img);
 </pre>
 ------------------  
 
+and a text-oztline-shadow-script i hacked together from stuff i found in forum  
+<pre>
+// text overlay bobobo v1
+// bobobo - standing on giants' shoulders
+input_get_name(-1, text);
+font="FUTURA";
+
+//@param1:size 'text size' 0.05 0.01 0.3 0.1 0.001
+//@param2:ypos 'y position' 0.5 -0.2 1.2 0.5 0.01
+//@param3:xpos 'x position' 0.5 0 1 0.5 0.01
+
+//@param5:fgr 'text R' 255 0 255 128 1
+//@param6:fgg 'text G' 255 0 255 128 1
+//@param7:fgb 'text B' 255 0 255 128 1
+//@param8:fga 'text A' 1 0 1 0.5 0.005
+
+//@param10:sha 'shadow alpha' 0.3 0 1 0.5 0.01
+//@param11:shx 'shadow x' 0.5 -1 1 0.5 0.01
+//@param12:shy 'shadow y' 0.5 -1 1 0.5 0.01
+//@param13:shs 'shadow spread' 5 0 10 5 0.05
+//@param14:shi 'shadow iterations' 5 1 20 5 1
+
+
+gfx_blit(0,1);
+gfx_setfont(size*project_h,font);
+gfx_str_measure(text,txtw,txth);
+yt = (project_h - txth)*ypos;
+
+x = xpos * (project_w-txtw);
+i = 0;
+
+//shadowcolor hardcoded 0-1, only alpha is parametered
+shr=0.333;shg=0;shb=0;
+gfx_set(shr,shg,shb,sha);
+loop(shi,
+
+  gfx_str_draw(text,x + (100 * shx*size) + (i * shs * size),yt + (100 * shy * size) + (i * shs * size));
+  gfx_str_draw(text,x + (100 * shy*size) - (i * shs * size),yt + (100 * shy * size) - (i * shs * size));
+  gfx_str_draw(text,x + (100 * shx*size) + (i * shs * size),yt + (100 * shy * size) - (i * shs * size));
+  gfx_str_draw(text,x + (100 * shx*size) - (i * shs * size),yt + (100 * shy * size) + (i * shs * size));
+  
+  i += 1;
+);
+
+gfx_set(fgr/255,fgg/255,fgb/255,fga);
+gfx_str_draw(text,x,yt);
+</pre>
+------------------  
+
 more to come  
 
 __________________
