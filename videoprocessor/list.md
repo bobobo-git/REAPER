@@ -379,7 +379,7 @@ yt = (project_h - txth)*ypos;
 x = xpos * (project_w-txtw);
 i = 0;
 
-gfx_set(shr,shg,shb,sha);
+gfx_set(shr/255,shg/255,shb/255,sha);
 loop(shi,
 
   gfx_str_draw(text,x + (100 * shx*size) + (i * shs * size),yt + (100 * shy * size) + (i * shs * size));
