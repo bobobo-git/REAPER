@@ -343,14 +343,16 @@ gfx_img_free(img);
 </pre>
 ------------------  
 
-and a text-oztline-shadow-script i hacked together from stuff i found in forum  
+and a text-oztline-shadow-script i hacked together from stuff i found in forum 
+runs on items, and/or tracks
+
 <pre>
-// text overlay bobobo v1
+// text overlay bobobo v2
 // bobobo - standing on giants' shoulders
 input_get_name(-1, text);
 font="FUTURA";
 
-//@param1:size 'text size' 0.05 0.01 0.3 0.1 0.001
+//@param1:size 'text size' 0.05 0.01 1 0.1 0.001
 //@param2:ypos 'y position' 0.5 -0.2 1.2 0.5 0.01
 //@param3:xpos 'x position' 0.5 0 1 0.5 0.01
 
@@ -359,11 +361,14 @@ font="FUTURA";
 //@param7:fgb 'text B' 255 0 255 128 1
 //@param8:fga 'text A' 1 0 1 0.5 0.005
 
-//@param10:sha 'shadow alpha' 0.3 0 1 0.5 0.01
-//@param11:shx 'shadow x' 0.5 -1 1 0.5 0.01
-//@param12:shy 'shadow y' 0.5 -1 1 0.5 0.01
-//@param13:shs 'shadow spread' 5 0 10 5 0.05
-//@param14:shi 'shadow iterations' 5 1 20 5 1
+//@param10:shr 'shadow R' 255 0 255 128 1
+//@param shg 'shadow G' 255 0 255 128 1
+//@param shb 'shadow B' 255 0 255 128 1
+//@param sha 'shadow alpha' 0.3 0 1 0.5 0.001
+//@param shx 'shadow x' 0.5 -1 1 0.5 0.01
+//@param shy 'shadow y' 0.5 -1 1 0.5 0.01
+//@param shs 'shadow spread' 5 0 10 5 0.05
+//@param shi 'shadow iterations' 5 1 20 5 1
 
 
 gfx_blit(0,1);
@@ -374,8 +379,6 @@ yt = (project_h - txth)*ypos;
 x = xpos * (project_w-txtw);
 i = 0;
 
-//shadowcolor hardcoded 0-1, only alpha is parametered
-shr=0.333;shg=0;shb=0;
 gfx_set(shr,shg,shb,sha);
 loop(shi,
 
