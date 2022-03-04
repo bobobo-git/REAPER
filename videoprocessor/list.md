@@ -393,6 +393,7 @@ loop(shi,
 gfx_set(fgr/255,fgg/255,fgb/255,fga);
 gfx_str_draw(text,x,yt);
 </pre>
+
 ------------------  
 
 so i made a crawling title generator  
@@ -416,14 +417,22 @@ a=1/100*alpha;
 bow=srch/100*bowp*-1;
 dx=(srcw-srcw*zoom)*10; 
 
-//bow=srch/8;
-  t[0]=-dx; t[1]=0+bow; t[2]=a;     t[3]=srcw/2;t[4]=0+bow; t[5]=a;   t[6]=srcw-t[0]; t[7]=0+bow; t[8]=a;
+t[0]=-dx; t[1]=0+bow;t[2]=a;
+t[3]=srcw/2;t[4]=0+bow;t[5]=a;
+t[6]=srcw-t[0]; t[7]=0+bow; t[8]=a;
+t[9]=0-(dx/2); t[10]=srch/2+bow/2;t[11]=a;
+t[12]=srcw/2;t[13]=srch/2+bow/2;t[14]=a;
+t[15]=srcw-t[9];
+t[16]=srch/2+bow/2;t[17]=a;
+t[18]=0; t[19]=srch;t[20]=1;
+t[21]=srcw/2;t[22]=srch;t[23]=1;
+t[24]=srcw;t[25]=srch;t[26]=1;
 
-  t[9]=0-(dx/2); t[10]=srch/2+bow/2;t[11]=a;      t[12]=srcw/2;t[13]=srch/2+bow/2;t[14]=a;  t[15]=srcw-t[9];   t[16]=srch/2+bow/2;t[17]=a;
-  t[18]=0; t[19]=srch;t[20]=1;      t[21]=srcw/2;t[22]=srch;t[23]=1;  t[24]=srcw;   t[25]=srch;t[26]=1;
- 
-  gfx_xformblit(src, 0,0,srcw,srch, 3,3,t,1);
+gfx_xformblit(src, 0,0,srcw,srch, 3,3,t,1);
 </pre>
+
+------------------  
+
 
 more to come  
 
