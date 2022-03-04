@@ -395,6 +395,36 @@ gfx_str_draw(text,x,yt);
 </pre>
 ------------------  
 
+so i made a crawling title generator  
+using a text generator containing long text as item video fx  
+automated the scrolling envelope on y  
+and took the blending thing on a track above the text track to get it fade  
+and shrink horizontally while proceeding to scroll  
+it scrolls not as in the starwars crawl, as it scrolls more curvy
+![](curved_scroller.png)  
+<pre>
+//bobobo  zoom xformblit()
+//@param1:zoom "zoom" 0.9 0.0001 1 0.5 0.0001
+//@param2:bowp "bowp"   75 0 100 50  0.1
+//@param3:alpha "alpha" 0 0 100 50 0.1
+src=0;
+input_info(src,srcw,srch);
+gfx_set(0,0,0,1);
+gfx_fillrect(0,0,srcw,srch); 
+
+a=1/100*alpha;
+bow=srch/100*bowp*-1;
+dx=(srcw-srcw*zoom)*10; 
+
+//bow=srch/8;
+  t[0]=-dx; t[1]=0+bow; t[2]=a;     t[3]=srcw/2;t[4]=0+bow; t[5]=a;   t[6]=srcw-t[0]; t[7]=0+bow; t[8]=a;
+
+  t[9]=0-(dx/2); t[10]=srch/2+bow/2;t[11]=a;      t[12]=srcw/2;t[13]=srch/2+bow/2;t[14]=a;  t[15]=srcw-t[9];   t[16]=srch/2+bow/2;t[17]=a;
+  t[18]=0; t[19]=srch;t[20]=1;      t[21]=srcw/2;t[22]=srch;t[23]=1;  t[24]=srcw;   t[25]=srch;t[26]=1;
+ 
+  gfx_xformblit(src, 0,0,srcw,srch, 3,3,t,1);
+</pre>
+
 more to come  
 
 __________________
