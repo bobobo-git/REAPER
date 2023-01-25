@@ -1,4 +1,4 @@
-4 [REAPER](http://reaper.fm/) ![REAPER](pics/REAPERlogo.png)
+4 [REAPER](https://reaper.fm/) ![REAPER](pics/REAPERlogo.png)
 
 -------
 Renaming Childtracks --> ParentTrackname_ChildTrackname   (20180917)  
