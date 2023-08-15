@@ -72,7 +72,11 @@ or another one, somehow simpler but more complex
  - [--!--sat_with input_output](scripts/--!--sat_with input_output)  
 
 -----------  
-if you are in urge to fix the trackenvelopes height you can use [this lua-script](scripts/bobobo_nail the track envelopes heights.lua)
+if you are in urge to fix the trackenvelopes height you can use  
+[this lua-script](scripts/bobobo_nail the track envelopes heights.lua)
+
+Mousewheel with CTRL on TCP in/decreases all including the trackenvelopes  
+running the script before nails the track envelope height so to envelope won't change in height while mousewheel+CTRL on TCP  
 
 -----------  
 
