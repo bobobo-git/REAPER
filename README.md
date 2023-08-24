@@ -81,7 +81,7 @@ running the script before nails the track envelope height so to envelope won't c
 
 -----------  
 sometimes it can happen that items will overlap or covered  
-the chatgpt has known a solution as an script  
+the chatgpt has known a solution as scripts , get them and load them in REAPER  
 [show covered items](scripts/bobobo_show_doubles.lua)  
 [show overkapping intems](scripts/bobobo_show_overlapping.lua)  
 
