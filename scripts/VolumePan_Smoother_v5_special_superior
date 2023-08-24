@@ -1,0 +1,15 @@
+desc:Volume/Pan Smoother v5 special superior
+slider2:0<-60,12,0.1>Volume (dB)
+options:gmem=bobobo_s_slider_thingy;
+@init
+@slider
+gmem[1]=slider2;
+@block
+/*
+you can make an eel script dealing with this gmem[1] whenputting a
+
+//@gmem=bobobo_s_slider_thingy
+
+in the first line of the eel using gmem[1] , this will load gmem[1] statical
+you have to create a loop to get this renewed
+*/

@@ -106,6 +106,10 @@ function draw_pot(x,y,fw,fh,fn,f,t,s,d,id)
 /* Background */
 gfx_clear=100+(150*256)+(100*65536);
 
+gfx_ext_flags == 1 ? (
+gfx_x=gfx_y=1;
+gfx_drawstr("this does\nnot work");
+):(
 
 /* Controls */
 x0=10;
@@ -118,6 +122,8 @@ x=x0;   slider5 = s5.draw_pot(x,dx,115,115,100,0,10,0.05,0,0);
 x=x+dx; slider6 = s6.draw_pot(x,dx,115,115,100,0,10,0.05,0,0);
 x=x+dx; slider7 = s7.draw_pot(x,dx,115,115,100,0,10,0.05,0,0);
 x=x+dx; slider8 = s8.draw_pot(x,dx,115,115,100,0,10,0.05,0,0);
+
+);
 
 _sliderDirty ? (  
   ProcessSliders();
