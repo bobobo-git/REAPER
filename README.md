@@ -48,6 +48,13 @@ or another one, somehow simpler but more complex
  - [--!--sat_with input_output](scripts/--!--sat_with input_output)  
 
 -----------  
+sometimes it can happen that items will overlap or covered  
+the chatgpt has known a solution as an script  
+[show covered items](scripts/bobobo_show_doubles.lua)  
+[show overkapping intems](scripts/bobobo_show_overlapping.lua)  
+
+
+-----------  
 
 [here](VP/README.md) you find a little tweak for the Virtual Playing from [Paul Battersby](http://virtualplaying.com/about/)  <small>[(obey licensing)](http://virtualplaying.com/virtual-playing-orchestra/#licensing)</small> 
 
