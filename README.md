@@ -71,7 +71,7 @@ enhanced with a volume slider to calm it (volume stolen from COCKOS volpansmooth
 or another one, somehow simpler but more complex  
  - [--!--sat_with input_output](scripts/--!--sat_with input_output)  
 
-or this with atan 
+or this with atan 😈
  - [--!--sat_atan_with input_output](scripts/--!--sat_atan_with input_output)  
 
 ----------- 
