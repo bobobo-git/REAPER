@@ -433,7 +433,7 @@ gfx_xformblit(src, 0,0,srcw,srch, 3,3,t,1);
 
 ------------------  
 
-[DThompson55_justified_autowrap](DThompson55_justified_autowrap)  
+[DThompson55_justified_autowordwrap](DThompson55_justified_autowordwrap)  
  
 more to come  
 
