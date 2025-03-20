@@ -1,0 +1,140 @@
+//LCR Justified Text, Auto Word-wrap, Obeys Hard CRs
+//DThompson55
+//It's like painting with your ears.
+#text="";
+font="Courier";
+
+//@param1:size 'text height' 0.05 0.01 0.2 0.1 0.001
+//@param2:lcr  'LCR' 0 0 2 1 1
+//@param3:pad  'margins' 0.01 0 1 0.5 0.01
+//@param4:xpos 'x pos' 0.5 0 1 0.5 0.01
+//@param5:ypos 'y pos' 0.5 0 1 0.5 0.01   
+
+//@param7:rgb_r 'red' 1.0 0 1   0.5 0.001
+//@param8:rgb_g 'green' 1.0 0 1 0.5 0.001
+//@param9:rgb_b 'blue' 1.0 0 1 0.5 0.001
+//@param10:fga  'text alpha' 1.0 0 1 0.5 0.01
+
+//@param12:bgc  'bg bright' 0.0 0 1 0.5 0.01
+//@param13:bga  'bg alpha' 1.0 0 1 0.5 0.01
+//@param14:border 'bg pad' 0.10 0 1 0.5 0.01
+//@param15:bg_obey 'bg obey margin' 0 0 1 1 1
+
+line = 0; 
+
+function split_lines(str, limit) (
+  i = 0; // start of string
+  j = 0; // end of string
+  k = 0; // last usable linebreak / space
+  n = 0; // line count
+  loop(strlen(str), (
+    c = str_getchar(str,j);
+    (c == ' ') ? (
+      strcpy_substr(#test, str, i, (j-i)); 
+      gfx_str_measure(#test, txtw, _txth);  // Get width for spacing
+      
+      (txtw >= limit)?(
+        (i == k)?(  
+          k = j;    // print the rest of the current line
+        ):(         // i != k means print from i up to current line break
+          strcpy_substr(line, str, i, (k-i));
+          i = k+1;
+          k = j;
+          n = n+1;
+          line = n;
+        );  // endif i == k;
+      ) : ( // else  under limit and we are still on a space or EOL, but it fits
+         k = j; // this sets the last available line break
+      ); 
+    ) : ( // else not space
+    (c == '\n') ? ( // hard CRs  what if the CR was on the last character?
+      strcpy_substr(line, str, i, (j-i)); // keeps the CR
+      k = j + 1; // skips over the cr
+      i = k;
+      n = n+1;
+      line = n;
+    );  // endif \n
+   );  // endif c == ' '
+   j = j+1;
+  );); // end loop ??   
+
+// process the last line that didn't get finished above
+  strcpy_substr(#test, str, i, (j-i));
+  gfx_str_measure(#test, txtw, _txth); // Get width for spacing
+  (txtw >= limit)?(
+   i != k? (  
+     strcpy_substr(line, str, i, (k-i));
+     i = k+1;
+     n = n+1;
+     line = n;
+   ); // endif i == k;
+  ); //endif txtw > limit
+
+  (i != j) ? (
+    
+    strcpy_substr(line, str, i, (j-i)); 
+    n = n+1;
+    line = n;
+  );
+  
+  n; // return line count
+);
+
+//
+// processing starts here
+//
+input = 0;
+project_wh_valid==0 ? input_info(input, project_w, project_h);
+gfx_a2=0;
+
+gfx_blit(input,1);
+gfx_setfont(size * project_h, font);
+strcmp(#text, "") == 0 ? input_get_name(-1, #text);
+
+// Draw centered multiline text
+limit = project_w * (1-pad);
+line_count = split_lines(#text, limit);
+
+txtw = 0; 
+gfx_str_measure("Test", txtw, line_height); // Get height for spacing
+total_height = line_height * line_count;
+
+gfx_set(bgc, bgc, bgc, bga);
+b = (border * total_height) | 0;
+yt = project_h * (1 - ypos) - (total_height + 2 * b) * ypos + b;
+xt = project_w * (1 - 2 * xpos);
+
+max_width = 0; // this is only used for centered text
+i = 0;
+loop(line_count ,(
+  line = i;
+  gfx_str_measure(line, txtw, _txth);
+  (txtw > max_width)?(max_width = txtw);
+  i = i + 1;
+););
+
+(bga > 0) ? (
+ (bg_obey == 0) ? (
+ gfx_fillrect(0, yt-b, project_w, total_height + b * 2);
+):(
+
+    lcr == 0? gfx_fillrect((project_w*pad)-xt-b, yt-b, project_w, total_height + b * 2);
+    lcr == 1? gfx_fillrect((((project_w/2)-(max_width/2))-xt-b), yt-b, (max_width+2*b), total_height + b * 2);
+    lcr == 2? gfx_fillrect(0, yt-b, ((project_w*(1-pad)))-xt+b, total_height + b * 2);
+    
+
+));
+gfx_set(rgb_r, rgb_g, rgb_b, fga);
+
+line_index=0;
+while (line_index < line_count) (
+    line = line_index;
+    gfx_str_measure(line, txtw, _txth); // Measure each line width\
+    xp = ((project_w*pad)) | 0;
+    lcr == 1? xp = ((project_w -txtw)/2)  | 0;
+    lcr == 2? xp = ((project_w*(1-pad)) - (txtw)) | 0;
+    gfx_str_draw(line, xp-xt, yt + ((line_index) * line_height));
+    line_index = line_index+1;
+); 
+
+
