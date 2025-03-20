@@ -1,6 +1,16 @@
 ![](1kl.png)  
 Some simple videoprocessor scripts  
 
+
+my actual [videoprocessor presets (RPL)](videoprozessorpresets_no_js.RPL)  
+handle with care  
+importing may overwrite your personal presets  
+
+------------------
+and here some to read online, they should be included in the above presetfile  
+
+
+------------------
 solid color over the project space  
 creating colored backgrounds 
 fills the project area
@@ -205,12 +215,6 @@ input_info(src,w,h) ? ( project_w = w; project_h = h; ); // preserve input dimen
 </pre>
 
 __________________
-
-my actual [videoprocessor presets (RPL)](videoprozessorpresets_no_js.RPL)  
-handle with care  
-importing may overwrite your personal presets  
-
-------------------
 
 a function by [papagirafe](https://forum.cockos.com/member.php?u=144400) to allocate an temporary image with an alpha plane (i.e. with transparent background).Of course you need to gfx_blit() with mode=0x10000  
 
